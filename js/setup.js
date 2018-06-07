@@ -28,18 +28,14 @@ var renderWizard = function (wizard) {
   return similarWizard;
 };
 
-var fragment = document.createDocumentFragment();
-
-var renderSimilarWizards = function (array) {
-  fragment.appendChild(renderWizard(array));
+var renderSimilarWizards = function (container) {
+  var fragment = document.createDocumentFragment();
+  for (var i = 0; i < 4; i++) {
+    fragment.appendChild(renderWizard(createWizard()));
+  }
+  container.appendChild(fragment);
 };
 
-for (var i = 0; i < 4; i++) {
-  renderSimilarWizards(createWizard());
-}
-
-var similarListElement = document.querySelector('.setup-similar-list');
-similarListElement.appendChild(fragment);
-
 document.querySelector('.setup').classList.remove('hidden');
+renderSimilarWizards(document.querySelector('.setup-similar-list'));
 document.querySelector('.setup-similar').classList.remove('hidden');
