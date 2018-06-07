@@ -45,8 +45,7 @@ var renderSimilarWizards = function () {
 };
 
 var showUserSetup = function () {
-  var userDialog = document.querySelector('.setup');
-  userDialog.classList.remove('hidden');
+  document.querySelector('.setup').classList.remove('hidden');
   document.querySelector('.setup-similar').classList.remove('hidden');
 };
 
