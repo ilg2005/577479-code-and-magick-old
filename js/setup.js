@@ -5,8 +5,8 @@ var WIZARDS_LAST_NAMES = ['да Марья', 'Верон', 'Мирабелла',
 var WIZARDS_COATS_COLORS = ['rgb(101, 137, 164)', 'rgb(241, 43, 107)', 'rgb(146, 100, 161)', 'rgb(56, 159, 117)', 'rgb(215, 210, 55)', 'rgb(0, 0, 0)'];
 var WIZARDS_EYES_COLORS = ['black', 'red', 'blue', 'yellow', 'green'];
 
-var getRandomFeature = function (array) {
-  return array[Math.round(Math.random() * (array.length - 1))];
+var getRandomFeature = function (features) {
+  return features[Math.round(Math.random() * (features.length - 1))];
 };
 
 var createWizard = function () {
