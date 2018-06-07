@@ -36,9 +36,7 @@ var showUserSetup = function () {
 showUserSetup();
 
 
-var template = document.querySelector('#similar-wizard-template');
-var documentFragment = template.content;
-var similarWizardTemplate = documentFragment.querySelector('.setup-similar-item');
+var similarWizardTemplate = document.querySelector('#similar-wizard-template').content.querySelector('.setup-similar-item');
 
 var similarListElement = document.querySelector('.setup-similar-list');
 
