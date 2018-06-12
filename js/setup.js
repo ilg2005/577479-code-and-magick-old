@@ -36,6 +36,18 @@ var renderSimilarWizards = function (container) {
   container.appendChild(fragment);
 };
 
-document.querySelector('.setup').classList.remove('hidden');
+var setup = document.querySelector('.setup');
+var setupOpen = document.querySelector('.setup-open');
+var setupClose = setup.querySelector('.setup-close');
+
+setupOpen.addEventListener('click', function() {
+  setup.classList.remove('hidden');
+});
+
+setupClose.addEventListener('click', function() {
+  setup.classList.add('hidden');
+});
+
+
 renderSimilarWizards(document.querySelector('.setup-similar-list'));
 document.querySelector('.setup-similar').classList.remove('hidden');
