@@ -5,6 +5,9 @@ var WIZARDS_LAST_NAMES = ['да Марья', 'Верон', 'Мирабелла',
 var WIZARDS_COATS_COLORS = ['rgb(101, 137, 164)', 'rgb(241, 43, 107)', 'rgb(146, 100, 161)', 'rgb(56, 159, 117)', 'rgb(215, 210, 55)', 'rgb(0, 0, 0)'];
 var WIZARDS_EYES_COLORS = ['black', 'red', 'blue', 'yellow', 'green'];
 
+var ESC_KEYCODE = 27;
+var ENTER_KEYCODE = 13;
+
 var getRandomFeature = function (features) {
   return features[Math.round(Math.random() * (features.length - 1))];
 };
@@ -40,12 +43,34 @@ var setup = document.querySelector('.setup');
 var setupOpen = document.querySelector('.setup-open');
 var setupClose = setup.querySelector('.setup-close');
 
-setupOpen.addEventListener('click', function() {
+var openPopup = function () {
   setup.classList.remove('hidden');
+};
+
+var closePopup = function () {
+  setup.classList.add('hidden');
+};
+
+setupOpen.addEventListener('click', function () {
+  openPopup();
 });
 
-setupClose.addEventListener('click', function() {
-  setup.classList.add('hidden');
+setupOpen.addEventListener('keydown', function (evt) {
+  if (evt.keyCode === ENTER_KEYCODE) {
+    openPopup();
+  } else if (evt.keyCode === ESC_KEYCODE) {
+    closePopup();
+  }
+});
+
+setupClose.addEventListener('click', function () {
+  closePopup();
+});
+
+setupClose.addEventListener('keydown', function (evt) {
+  if (evt.keyCode === ENTER_KEYCODE) {
+    closePopup();
+  }
 });
 
 
