@@ -73,6 +73,11 @@ setupClose.addEventListener('keydown', function (evt) {
   }
 });
 
+setup.addEventListener('keydown', function (evt) {
+  if (evt.keyCode === ESC_KEYCODE) {
+    closePopup();
+  }
+});
 
 renderSimilarWizards(document.querySelector('.setup-similar-list'));
 document.querySelector('.setup-similar').classList.remove('hidden');
