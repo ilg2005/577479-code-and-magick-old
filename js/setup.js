@@ -94,5 +94,15 @@ userNameInput.addEventListener('invalid', function (evt) {
   }
 });
 
+var wizardCoatColor = setup.querySelector('.setup-wizard .wizard-coat');
+
+var changeCoatColor = function (colors) {
+  wizardCoatColor.style.fill = getRandomFeature(colors);
+};
+
+wizardCoatColor.addEventListener('click', function () {
+  changeCoatColor(WIZARDS_COATS_COLORS);
+});
+
 renderSimilarWizards(document.querySelector('.setup-similar-list'));
 document.querySelector('.setup-similar').classList.remove('hidden');
