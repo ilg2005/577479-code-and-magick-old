@@ -104,5 +104,15 @@ wizardCoatColor.addEventListener('click', function () {
   changeCoatColor(WIZARDS_COATS_COLORS);
 });
 
+var wizardEyesColor = setup.querySelector('.setup-wizard .wizard-eyes');
+
+var changeEyesColor = function (colors) {
+  wizardEyesColor.style.fill = getRandomFeature(colors);
+};
+
+wizardEyesColor.addEventListener('click', function () {
+  changeEyesColor(WIZARDS_EYES_COLORS);
+});
+
 renderSimilarWizards(document.querySelector('.setup-similar-list'));
 document.querySelector('.setup-similar').classList.remove('hidden');
