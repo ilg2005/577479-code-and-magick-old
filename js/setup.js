@@ -114,5 +114,16 @@ wizardEyesColor.addEventListener('click', function () {
   changeEyesColor(WIZARDS_EYES_COLORS);
 });
 
+
+var wizardFireballColor = setup.querySelector('.setup-fireball-wrap');
+
+var changeFireballColor = function (colors) {
+  wizardFireballColor.style.backgroundColor = getRandomFeature(colors);
+};
+
+wizardFireballColor.addEventListener('click', function () {
+  changeFireballColor(WIZARDS_FIREBALL_COLORS);
+});
+
 renderSimilarWizards(document.querySelector('.setup-similar-list'));
 document.querySelector('.setup-similar').classList.remove('hidden');
