@@ -73,9 +73,23 @@ setupClose.addEventListener('keydown', function (evt) {
   }
 });
 
-setup.addEventListener('keydown', function (evt) {
-  if (evt.keyCode === ESC_KEYCODE) {
+document.addEventListener('keydown', function (evt) {
+  if (evt.keyCode === ESC_KEYCODE && evt.target.className !== 'setup-user-name') {
     closePopup();
+  }
+});
+
+var userNameInput = setup.querySelector('.setup-user-name');
+
+userNameInput.addEventListener('invalid', function (evt) {
+  if (userNameInput.validity.tooShort) {
+    userNameInput.setCustomValidity('Имя должно состоять минимум из 2-х символов');
+  } else if (userNameInput.validity.tooLong) {
+    userNameInput.setCustomValidity('Имя не должно превышать 25-ти символов');
+  } else if (userNameInput.validity.valueMissing) {
+    userNameInput.setCustomValidity('Обязательное поле');
+  } else {
+    userNameInput.setCustomValidity('');
   }
 });
 
