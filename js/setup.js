@@ -63,8 +63,6 @@ setupOpen.addEventListener('click', function () {
 setupOpen.addEventListener('keydown', function (evt) {
   if (evt.keyCode === ENTER_KEYCODE) {
     openPopup();
-  } else if (evt.keyCode === ESC_KEYCODE) {
-    closePopup();
   }
 });
 
@@ -79,7 +77,7 @@ setupClose.addEventListener('keydown', function (evt) {
 });
 
 document.addEventListener('keydown', function (evt) {
-  if (evt.keyCode === ESC_KEYCODE && evt.target.className !== 'setup-user-name') {
+  if (evt.keyCode === ESC_KEYCODE && evt.target.className !== 'setup-user-name' || evt.target.className === 'setup-open') {
     closePopup();
   }
 });
