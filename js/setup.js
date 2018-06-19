@@ -77,7 +77,7 @@ setupClose.addEventListener('keydown', function (evt) {
 });
 
 document.addEventListener('keydown', function (evt) {
-  if (evt.keyCode === ESC_KEYCODE && evt.target.className !== 'setup-user-name' || evt.target.className === 'setup-open') {
+  if (evt.keyCode === ESC_KEYCODE && evt.target.className !== 'setup-user-name') {
     closePopup();
   }
 });
