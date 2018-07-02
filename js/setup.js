@@ -6,12 +6,7 @@ var WIZARDS_COATS_COLORS = ['rgb(101, 137, 164)', 'rgb(241, 43, 107)', 'rgb(146,
 var WIZARDS_EYES_COLORS = ['black', 'red', 'blue', 'yellow', 'green'];
 var WIZARDS_FIREBALL_COLORS = ['#ee4830', '#30a8ee', '#5ce6c0', '#e848d5', '#e6e848'];
 
-var ESC_KEYCODE = 27;
-var ENTER_KEYCODE = 13;
-
 var setup = document.querySelector('.setup');
-var setupOpen = document.querySelector('.setup-open');
-var setupClose = setup.querySelector('.setup-close');
 var userNameInput = setup.querySelector('.setup-user-name');
 var wizardCoatColor = setup.querySelector('.setup-wizard .wizard-coat');
 var wizardEyesColor = setup.querySelector('.setup-wizard .wizard-eyes');
@@ -47,40 +42,6 @@ var renderSimilarWizards = function (container) {
   }
   container.appendChild(fragment);
 };
-
-var openPopup = function () {
-  setup.classList.remove('hidden');
-};
-
-var closePopup = function () {
-  setup.classList.add('hidden');
-};
-
-setupOpen.addEventListener('click', function () {
-  openPopup();
-});
-
-setupOpen.addEventListener('keydown', function (evt) {
-  if (evt.keyCode === ENTER_KEYCODE) {
-    openPopup();
-  }
-});
-
-setupClose.addEventListener('click', function () {
-  closePopup();
-});
-
-setupClose.addEventListener('keydown', function (evt) {
-  if (evt.keyCode === ENTER_KEYCODE) {
-    closePopup();
-  }
-});
-
-document.addEventListener('keydown', function (evt) {
-  if (evt.keyCode === ESC_KEYCODE && evt.target.className !== 'setup-user-name') {
-    closePopup();
-  }
-});
 
 userNameInput.addEventListener('invalid', function () {
   if (userNameInput.validity.tooShort) {
