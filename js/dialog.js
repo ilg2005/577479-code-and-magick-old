@@ -5,9 +5,6 @@
   var setupOpen = document.querySelector('.setup-open');
   var setupClose = setup.querySelector('.setup-close');
 
-  var ESC_KEYCODE = 27;
-  var ENTER_KEYCODE = 13;
-
   var openPopup = function () {
     setup.classList.remove('hidden');
   };
@@ -21,9 +18,7 @@
   });
 
   setupOpen.addEventListener('keydown', function (evt) {
-    if (evt.keyCode === ENTER_KEYCODE) {
-      openPopup();
-    }
+    window.util.isEnterEvent(evt, openPopup);
   });
 
   setupClose.addEventListener('click', function () {
@@ -31,14 +26,12 @@
   });
 
   setupClose.addEventListener('keydown', function (evt) {
-    if (evt.keyCode === ENTER_KEYCODE) {
-      closePopup();
-    }
+    window.util.isEnterEvent(evt, closePopup);
   });
 
   document.addEventListener('keydown', function (evt) {
-    if (evt.keyCode === ESC_KEYCODE && evt.target.className !== 'setup-user-name') {
-      closePopup();
+    if (evt.target.className !== 'setup-user-name') {
+      window.util.isEscEvent(evt, closePopup);
     }
   });
 
