@@ -4,7 +4,7 @@
   var setup = document.querySelector('.setup');
   var setupOpen = document.querySelector('.setup-open');
   var setupClose = setup.querySelector('.setup-close');
-  var dialogHandle = setup.querySelector('.upload');
+  var dialogHandle = setup.querySelector('.setup-user-pic');
   var initialSetupCoordinates = {
     left: setup.style.left,
     top: setup.style.top
@@ -41,6 +41,8 @@
       window.util.isEscEvent(evt, closePopup);
     }
   });
+
+  dialogHandle.style.zIndex = 1;
 
   var onDialogHandleMousedown = function (evtDown) {
     evtDown.preventDefault();
@@ -79,6 +81,8 @@
           dialogHandle.removeEventListener('click', onDialogHandleClick);
         };
         dialogHandle.addEventListener('click', onDialogHandleClick);
+      } else {
+        dialogHandle.style.zIndex = '';
       }
 
     };
