@@ -11,6 +11,7 @@
   };
 
   var openPopup = function () {
+    dialogHandle.style.zIndex = 1;
     setup.style.left = initialSetupCoordinates.left;
     setup.style.top = initialSetupCoordinates.top;
     setup.classList.remove('hidden');
@@ -42,8 +43,6 @@
     }
   });
 
-  dialogHandle.style.zIndex = 1;
-
   var onDialogHandleMousedown = function (evtDown) {
     evtDown.preventDefault();
     var startMouseCoordinates = {
@@ -52,6 +51,7 @@
     };
 
     var dragged = false;
+    dialogHandle.style.zIndex = 1;
 
     var onDocumentMousemove = function (evtMove) {
       dragged = true;
