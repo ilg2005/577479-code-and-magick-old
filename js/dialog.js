@@ -73,12 +73,8 @@
       document.removeEventListener('mousemove', onDocumentMousemove);
       document.removeEventListener('mouseup', onDocumentMouseup);
 
-      if (dragged) {
-        var onDialogHandleClick = function (evtClick) {
-          evtClick.preventDefault();
-          dialogHandle.removeEventListener('click', onDialogHandleClick);
-        };
-        dialogHandle.addEventListener('click', onDialogHandleClick);
+      if (dragged === false) {
+        document.querySelector('.upload input').click();
       }
     };
 
