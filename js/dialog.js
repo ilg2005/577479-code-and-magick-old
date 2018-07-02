@@ -4,8 +4,15 @@
   var setup = document.querySelector('.setup');
   var setupOpen = document.querySelector('.setup-open');
   var setupClose = setup.querySelector('.setup-close');
+  var dialogHandle = setup.querySelector('.upload');
+  var initialSetupCoordinates = {
+    left: setup.style.left,
+    top: setup.style.top
+  };
 
   var openPopup = function () {
+    setup.style.left = initialSetupCoordinates.left;
+    setup.style.top = initialSetupCoordinates.top;
     setup.classList.remove('hidden');
   };
 
@@ -34,5 +41,52 @@
       window.util.isEscEvent(evt, closePopup);
     }
   });
+
+  var onDialogHandleMousedown = function (evtDown) {
+    evtDown.preventDefault();
+    var startMouseCoordinates = {
+      x: evtDown.clientX,
+      y: evtDown.clientY
+    };
+
+    var dragged = false;
+
+    var onDocumentMousemove = function (evtMove) {
+      dragged = true;
+      var shift = {
+        x: evtMove.clientX - startMouseCoordinates.x,
+        y: evtMove.clientY - startMouseCoordinates.y
+      };
+
+      startMouseCoordinates = {
+        x: evtMove.clientX,
+        y: evtMove.clientY
+      };
+
+      setup.style.left = (setup.offsetLeft + shift.x) + 'px';
+      setup.style.top = (setup.offsetTop + shift.y) + 'px';
+    };
+
+    var onDocumentMouseup = function (evtUp) {
+      evtUp.preventDefault();
+
+      document.removeEventListener('mousemove', onDocumentMousemove);
+      document.removeEventListener('mouseup', onDocumentMouseup);
+
+      if (dragged) {
+        var onDialogHandleClick = function (evtClick) {
+          evtClick.preventDefault();
+          dialogHandle.removeEventListener('click', onDialogHandleClick);
+        };
+        dialogHandle.addEventListener('click', onDialogHandleClick);
+      }
+
+    };
+
+    document.addEventListener('mousemove', onDocumentMousemove);
+    document.addEventListener('mouseup', onDocumentMouseup);
+  };
+
+  dialogHandle.addEventListener('mousedown', onDialogHandleMousedown);
 
 })();
