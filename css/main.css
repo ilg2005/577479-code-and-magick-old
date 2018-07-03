@@ -1002,6 +1002,8 @@ input[type=radio]:checked + .review-mark-label
     top: 0;
     left: 0;
 
+    z-index: 1;
+
     display: block;
 
     margin: 0;
