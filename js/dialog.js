@@ -11,7 +11,6 @@
   };
 
   var openPopup = function () {
-    dialogHandle.style.zIndex = 1;
     setup.style.left = initialSetupCoordinates.left;
     setup.style.top = initialSetupCoordinates.top;
     setup.classList.remove('hidden');
@@ -51,7 +50,6 @@
     };
 
     var dragged = false;
-    dialogHandle.style.zIndex = 1;
 
     var onDocumentMousemove = function (evtMove) {
       dragged = true;
@@ -75,16 +73,9 @@
       document.removeEventListener('mousemove', onDocumentMousemove);
       document.removeEventListener('mouseup', onDocumentMouseup);
 
-      if (dragged) {
-        var onDialogHandleClick = function (evtClick) {
-          evtClick.preventDefault();
-          dialogHandle.removeEventListener('click', onDialogHandleClick);
-        };
-        dialogHandle.addEventListener('click', onDialogHandleClick);
-      } else {
-        dialogHandle.style.zIndex = '';
+      if (dragged === false) {
+        document.querySelector('.upload input').click();
       }
-
     };
 
     document.addEventListener('mousemove', onDocumentMousemove);
