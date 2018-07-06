@@ -3,9 +3,9 @@
 
   var createWizard = function () {
     return {
-      name: window.util.getRandomFeature(window.constants.FIRST_NAMES) + ' ' + window.util.getRandomFeature(window.constants.LAST_NAMES),
-      coatColor: window.util.getRandomFeature(window.constants.COATS_COLORS),
-      eyesColor: window.util.getRandomFeature(window.constants.EYES_COLORS)
+      name: window.util.getRandomFeature(window.data.FIRST_NAMES) + ' ' + window.util.getRandomFeature(window.data.LAST_NAMES),
+      coatColor: window.util.getRandomFeature(window.data.COATS_COLORS),
+      eyesColor: window.util.getRandomFeature(window.data.EYES_COLORS)
     };
   };
 

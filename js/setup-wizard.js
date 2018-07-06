@@ -31,12 +31,12 @@
   };
 
   wizardCoatColor.addEventListener('click', function () {
-    changeFeature('coat-color', window.constants.COATS_COLORS, wizardCoatColor);
+    changeFeature('coat-color', window.data.COATS_COLORS, wizardCoatColor);
   });
   wizardEyesColor.addEventListener('click', function () {
-    changeFeature('eyes-color', window.constants.EYES_COLORS, wizardEyesColor);
+    changeFeature('eyes-color', window.data.EYES_COLORS, wizardEyesColor);
   });
   wizardFireballColor.addEventListener('click', function () {
-    changeFeature('fireball-color', window.constants.FIREBALL_COLORS, wizardFireballColor);
+    changeFeature('fireball-color', window.data.FIREBALL_COLORS, wizardFireballColor);
   });
 })();
