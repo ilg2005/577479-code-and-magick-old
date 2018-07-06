@@ -14,6 +14,9 @@
       if (evt.keyCode === ENTER_KEYCODE) {
         action();
       }
+    },
+    getRandomFeature: function (features) {
+      return features[Math.round(Math.random() * (features.length - 1))];
     }
   };
 })();
