@@ -1,13 +1,7 @@
 'use strict';
 (function () {
 
-  var createWizard = function () {
-    return {
-      name: window.util.getRandomFeature(window.data.FIRST_NAMES) + ' ' + window.util.getRandomFeature(window.data.LAST_NAMES),
-      coatColor: window.util.getRandomFeature(window.data.COATS_COLORS),
-      eyesColor: window.util.getRandomFeature(window.data.EYES_COLORS)
-    };
-  };
+  window.data.createWizard();
 
   var renderWizard = function (wizard) {
     var wizardTemplate = document.querySelector('#similar-wizard-template').content.querySelector('.setup-similar-item');
@@ -23,7 +17,7 @@
   var renderSimilarWizards = function (container) {
     var fragment = document.createDocumentFragment();
     for (var i = 0; i < 4; i++) {
-      fragment.appendChild(renderWizard(createWizard()));
+      fragment.appendChild(renderWizard(window.data.createWizard()));
     }
     container.appendChild(fragment);
   };
