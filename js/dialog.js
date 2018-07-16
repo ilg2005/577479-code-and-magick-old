@@ -1,6 +1,7 @@
 'use strict';
 
 (function () {
+  var form = document.querySelector('form');
   var setup = document.querySelector('.setup');
   var setupOpen = document.querySelector('.setup-open');
   var setupClose = setup.querySelector('.setup-close');
@@ -84,4 +85,10 @@
 
   dialogHandle.addEventListener('mousedown', onDialogHandleMousedown);
 
+  form.addEventListener('submit', function (evt) {
+    window.backend.save(new FormData(form), function () {
+      closePopup();
+    });
+    evt.preventDefault();
+  });
 })();
