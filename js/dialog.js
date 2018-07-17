@@ -85,10 +85,17 @@
 
   dialogHandle.addEventListener('mousedown', onDialogHandleMousedown);
 
+  var onSuccessSave = function () {
+    alert('Данные получены успешно!');
+    closePopup();
+  };
+
+  var onErrorSave = function (message) {
+    alert(message);
+  };
+
   form.addEventListener('submit', function (evt) {
-    window.backend.save(new FormData(form), function () {
-      closePopup();
-    });
     evt.preventDefault();
+    window.backend.save(new FormData(form), onSuccessSave, onErrorSave);
   });
 })();
