@@ -1,5 +1,9 @@
 'use strict';
 (function () {
+  var COATS_COLORS = ['rgb(101, 137, 164)', 'rgb(241, 43, 107)', 'rgb(146, 100, 161)', 'rgb(56, 159, 117)', 'rgb(215, 210, 55)', 'rgb(0, 0, 0)'];
+  var EYES_COLORS = ['black', 'red', 'blue', 'yellow', 'green'];
+  var FIREBALL_COLORS = ['#ee4830', '#30a8ee', '#5ce6c0', '#e848d5', '#e6e848'];
+
   var setup = document.querySelector('.setup');
   var userNameInput = setup.querySelector('.setup-user-name');
   var wizardCoatColor = setup.querySelector('.setup-wizard .wizard-coat');
@@ -31,12 +35,12 @@
   };
 
   wizardCoatColor.addEventListener('click', function () {
-    changeFeature('coat-color', window.data.COATS_COLORS, wizardCoatColor);
+    changeFeature('coat-color', COATS_COLORS, wizardCoatColor);
   });
   wizardEyesColor.addEventListener('click', function () {
-    changeFeature('eyes-color', window.data.EYES_COLORS, wizardEyesColor);
+    changeFeature('eyes-color', EYES_COLORS, wizardEyesColor);
   });
   wizardFireballColor.addEventListener('click', function () {
-    changeFeature('fireball-color', window.data.FIREBALL_COLORS, wizardFireballColor);
+    changeFeature('fireball-color', FIREBALL_COLORS, wizardFireballColor);
   });
 })();
