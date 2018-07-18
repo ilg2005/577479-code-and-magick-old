@@ -91,7 +91,7 @@
   };
 
   var onErrorSave = function (message) {
-    alert(message);
+    window.util.serverResponseMessage(message, 'red');
   };
 
   form.addEventListener('submit', function (evt) {
