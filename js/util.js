@@ -15,8 +15,10 @@
         action();
       }
     },
-    getRandomFeature: function (features) {
-      return features[Math.round(Math.random() * (features.length - 1))];
+    getUniqueRandomItem: function (items) {
+      var uniqueRandomItem = items[Math.round(Math.random() * (items.length - 1))];
+      items.splice(items.indexOf(uniqueRandomItem), 1);
+      return uniqueRandomItem;
     }
   };
 })();

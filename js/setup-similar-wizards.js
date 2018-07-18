@@ -8,7 +8,7 @@
     var fragment = document.createDocumentFragment();
 
     for (var i = 0; i < WIZARDS_NUMBER; i++) {
-      var randomWizard = window.util.getRandomFeature(wizards);
+      var randomWizard = window.util.getUniqueRandomItem(wizards);
 
       var similarWizard = wizardTemplate.cloneNode(true);
       similarWizard.querySelector('.setup-similar-label').textContent = randomWizard.name;

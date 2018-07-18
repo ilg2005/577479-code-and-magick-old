@@ -23,7 +23,7 @@
   });
 
   var changeFeature = function (featureName, features, element) {
-    var randomValue = window.util.getRandomFeature(features);
+    var randomValue = window.util.getUniqueRandomItem(features);
     if (featureName === 'fireball-color') {
       element.style.backgroundColor = randomValue;
     } else {
