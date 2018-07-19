@@ -5,23 +5,25 @@
   var ENTER_KEYCODE = 13;
 
   var serverResponseMessage = function (message, backgroundColor) {
+    var MESSAGE_TIMEOUT = 1000;
     var node = document.createElement('div');
-    node.style = 'z-index: 100; width: 300px; min-height: 25px; margin: auto; padding: 25px; text-align: center; border-radius: 50px; background-color: ' + backgroundColor;
+    node.style = 'z-index: 100; width: 300px; min-height: 50px; border-radius: 50px; margin: auto; text-align: center; background-color: ' + backgroundColor;
+    node.style.display = 'inline-flex';
+    node.style.justifyContent = 'center';
+    node.style.alignItems = 'center';
     node.style.position = 'fixed';
     node.style.top = '50%';
     node.style.bottom = '50%';
     node.style.left = 0;
     node.style.right = 0;
     node.style.fontSize = '18px';
-    node.style.visibility = 'visible';
 
     node.textContent = message;
     document.body.insertAdjacentElement('afterbegin', node);
 
-    /* var hideNode = function (element) {
-      element.style.visibility = 'hidden';
-    };
-    setTimeout(hideNode(node), 5000);*/
+    setTimeout(function () {
+      node.remove();
+    }, MESSAGE_TIMEOUT);
   };
 
   window.util = {

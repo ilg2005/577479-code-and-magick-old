@@ -86,8 +86,8 @@
   dialogHandle.addEventListener('mousedown', onDialogHandleMousedown);
 
   var onSuccessSave = function () {
-    window.util.serverResponseMessage('Данные успешно сохранены!Данные успешно сохранены!Данные успешно сохранены!Данные успешно сохранены!Данные успешно сохранены!Данные успешно сохранены!', 'green');
     closePopup();
+    window.util.serverResponseMessage('Данные успешно сохранены!', 'green');
   };
 
   var onErrorSave = function (message) {
