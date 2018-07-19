@@ -91,7 +91,7 @@
   };
 
   var onErrorSave = function (message) {
-    window.util.renderServerResponseMessage(message, 'error');
+    window.util.renderErrorMessage(message);
   };
 
   form.addEventListener('submit', function (evt) {

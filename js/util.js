@@ -26,6 +26,15 @@
     }, MESSAGE_TIMEOUT);
   };
 
+  var renderErrorMessage = function (message) {
+    var node = document.createElement('div');
+    node.style = 'z-index: 100; width: 500px; min-height: 50px; margin: auto; text-align: center';
+    node.style.fontSize = '20px';
+
+    node.textContent = message;
+    document.querySelector('.setup-submit').insertAdjacentElement('beforebegin', node);
+  };
+
   window.util = {
     isEscEvent: function (evt, action) {
       if (evt.keyCode === ESC_KEYCODE) {
@@ -42,6 +51,7 @@
       items.splice(items.indexOf(uniqueRandomItem), 1);
       return uniqueRandomItem;
     },
-    renderSuccessMessage: renderSuccessMessage
+    renderSuccessMessage: renderSuccessMessage,
+    renderErrorMessage: renderErrorMessage
   };
 })();
