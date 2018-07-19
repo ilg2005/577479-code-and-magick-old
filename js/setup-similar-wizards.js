@@ -24,7 +24,7 @@
   };
 
   var onErrorLoad = function (message) {
-    window.util.renderServerResponseMessage(message, 'red');
+    window.util.renderServerResponseMessage(message, 'error');
   };
 
   window.backend.load(onSuccessLoad, onErrorLoad);

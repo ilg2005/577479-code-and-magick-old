@@ -87,11 +87,11 @@
 
   var onSuccessSave = function () {
     closePopup();
-    window.util.renderServerResponseMessage('Данные успешно сохранены!', 'green');
+    window.util.renderSuccessMessage('Сохранено успешно!');
   };
 
   var onErrorSave = function (message) {
-    window.util.renderServerResponseMessage(message, 'red');
+    window.util.renderServerResponseMessage(message, 'error');
   };
 
   form.addEventListener('submit', function (evt) {

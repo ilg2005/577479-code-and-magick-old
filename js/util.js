@@ -4,10 +4,10 @@
   var ESC_KEYCODE = 27;
   var ENTER_KEYCODE = 13;
 
-  var renderServerResponseMessage = function (message, backgroundColor) {
+  var renderSuccessMessage = function (message) {
     var MESSAGE_TIMEOUT = 1000;
     var node = document.createElement('div');
-    node.style = 'z-index: 100; width: 300px; min-height: 50px; border-radius: 50px; margin: auto; text-align: center; background-color: ' + backgroundColor;
+    node.style = 'z-index: 100; width: 300px; min-height: 50px; border-radius: 50px; margin: auto; text-align: center; background-color: green';
     node.style.display = 'inline-flex';
     node.style.justifyContent = 'center';
     node.style.alignItems = 'center';
@@ -42,6 +42,6 @@
       items.splice(items.indexOf(uniqueRandomItem), 1);
       return uniqueRandomItem;
     },
-    renderServerResponseMessage: renderServerResponseMessage
+    renderSuccessMessage: renderSuccessMessage
   };
 })();
