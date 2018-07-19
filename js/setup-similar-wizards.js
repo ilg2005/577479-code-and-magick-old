@@ -2,8 +2,7 @@
 (function () {
   var WIZARDS_NUMBER = 4;
 
-  var onSuccessLoad = function (wizards) {
-
+  var renderSimilarWizards = function (wizards) {
     var wizardTemplate = document.querySelector('#similar-wizard-template').content.querySelector('.setup-similar-item');
     var fragment = document.createDocumentFragment();
 
@@ -18,6 +17,10 @@
       fragment.appendChild(similarWizard);
     }
     document.querySelector('.setup-similar-list').appendChild(fragment);
+  };
+
+  var onSuccessLoad = function (loadedData) {
+    renderSimilarWizards(loadedData);
   };
 
   var onErrorLoad = function (message) {
