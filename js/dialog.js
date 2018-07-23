@@ -1,6 +1,7 @@
 'use strict';
 
 (function () {
+  var form = document.querySelector('form');
   var setup = document.querySelector('.setup');
   var setupOpen = document.querySelector('.setup-open');
   var setupClose = setup.querySelector('.setup-close');
@@ -84,4 +85,17 @@
 
   dialogHandle.addEventListener('mousedown', onDialogHandleMousedown);
 
+  var onSuccessSave = function () {
+    closePopup();
+    window.util.renderSuccessMessage('Сохранено успешно!');
+  };
+
+  var onErrorSave = function (message) {
+    window.util.renderErrorMessage(message);
+  };
+
+  form.addEventListener('submit', function (evt) {
+    evt.preventDefault();
+    window.backend.save(new FormData(form), onSuccessSave, onErrorSave);
+  });
 })();
